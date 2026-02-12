@@ -1,0 +1,17 @@
+import fastapi import FastAPI 
+from pydantic import BaseModel
+
+app = FastAPI()
+
+user_details = {}
+count_id = 1
+
+
+class User(BaseModel):
+    name: str
+    phone: int
+    email: str
+
+
+@app.post("/create ")
+def create_user(user: User):
